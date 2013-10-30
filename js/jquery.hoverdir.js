@@ -1,5 +1,5 @@
 /**
- * jquery.hoverdir.js v1.1.0
+ * jquery.hoverdir.js v1.1.1
  * http://www.codrops.com
  *
  * Licensed under the MIT license.
@@ -24,7 +24,8 @@
 		speed : 300,
 		easing : 'ease',
 		hoverDelay : 0,
-		inverse : false
+		inverse : false,
+		hoverElem : 'div'
 	};
 
 	$.HoverDir.prototype = {
@@ -48,7 +49,7 @@
 			this.$el.on( 'mouseenter.hoverdir, mouseleave.hoverdir', function( event ) {
 				
 				var $el = $( this ),
-					$hoverElem = $el.find( 'div' ),
+					$hoverElem = $el.find( self.options.hoverElem ),
 					direction = self._getDir( $el, { x : event.pageX, y : event.pageY } ),
 					styleCSS = self._getStyle( direction );
 				
