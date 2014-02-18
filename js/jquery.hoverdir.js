@@ -46,7 +46,7 @@
 
 			var self = this;
 			
-			this.$el.on( 'mouseenter.hoverdir, mouseleave.hoverdir', function( event ) {
+			this.$el.on( 'mouseenter.hoverdir mouseleave.hoverdir', function( event ) {
 				
 				var $el = $( this ),
 					$hoverElem = $el.find( self.options.hoverElem ),
@@ -54,6 +54,10 @@
 					styleCSS = self._getStyle( direction );
 				
 				if( event.type === 'mouseenter' ) {
+					
+					if( self.support ) {
+						$hoverElem.css( 'transition', '' );
+					}
 					
 					$hoverElem.hide().css( styleCSS.from );
 					clearTimeout( self.tmhover );
