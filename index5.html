@@ -32,13 +32,28 @@
                 <span>Tips &amp; Tricks</span>
                 <h1>Direction-Aware <span>Hover Effect</span></h1>
                 <nav class="codrops-demos">
-                    <a class="current-demo" href="index.html">Default</a>
+                    <a href="index.html">Default</a>
                     <a href="index2.html">Delay</a>
                     <a href="index3.html">Inverse</a>
                     <a href="index4.html">Named Object</a>
-                    <a href="index5.html">Method</a>
+                    <a class="current-demo" href="index5.html">Method</a>
                 </nav>
                 <p>Moving from one thumb to the other will immediately trigger the sliding of the info box.</p>
+                <nav class="codrops-demos">
+                    <a id="show-default" href="#">Show (default)</a>
+                    <a id="show-left" href="#">Show (left)</a>
+                    <a id="hide-default" href="#">Hide (default)</a>
+                    <a id="hide-right" href="#">Hide (right)</a>
+                </nav>
+                <nav class="codrops-demos">
+                    <a id="set-options" href="#">options {hoverDelay: 300, inverse: true}</a>
+                    <a id="reset-options" href="#">Reset options</a>
+                </nav>
+                <nav class="codrops-demos">
+                    <a id="destroy" href="#">Destroy</a>
+                    <a id="rebuild-default" href="#">Rebuild</a>
+                    <a id="rebuild-options" href="#">Rebuild {hoverDelay: 300, inverse: true}</a>
+                </nav>
             </header>
             <section>
                 <ul id="da-thumbs" class="da-thumbs">
@@ -121,9 +136,39 @@
         <script type="text/javascript" src="js/jquery.hoverdir.js"></script>
         <script type="text/javascript">
             $(function () {
-
                 $(' #da-thumbs > li ').hoverdir();
 
+                $('#show-default').on('click', function () {
+                    $(' #da-thumbs > li ').hoverdir("show");
+                });
+                $('#show-left').on('click', function () {
+                    $(' #da-thumbs > li ').hoverdir("show", "left");
+                });
+
+                $('#hide-default').on('click', function () {
+                    $(' #da-thumbs > li ').hoverdir("hide");
+                });
+                $('#hide-right').on('click', function () {
+                    $(' #da-thumbs > li ').hoverdir("hide", "right");
+                });
+
+                $('#set-options').on('click', function () {
+                    $(' #da-thumbs > li ').hoverdir("setOptions", {hoverDelay: 300, inverse: true});
+                });
+                $('#reset-options').on('click', function () {
+                    $(' #da-thumbs > li ').hoverdir("setOptions", {hoverDelay: 0, inverse: false});
+                });
+
+                $('#destroy').on('click', function () {
+                    $(' #da-thumbs > li ').hoverdir("destroy");
+                });
+
+                $('#rebuild-default').on('click', function () {
+                    $(' #da-thumbs > li ').hoverdir("rebuild");
+                });
+                $('#rebuild-options').on('click', function () {
+                    $(' #da-thumbs > li ').hoverdir("rebuild", {hoverDelay: 300, inverse: true});
+                });
             });
         </script>
     </body>
