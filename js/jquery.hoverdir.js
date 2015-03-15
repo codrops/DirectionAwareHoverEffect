@@ -222,8 +222,10 @@
          */
         hide: function (direction) {
             this.rebuild();
-            this.direction = direction || 'bottom';
-            this._hideHover();
+            if (this.isVisible) {
+                this.direction = direction || 'bottom';
+                this._hideHover();
+            }
         },
         setOptions: function (options) {
             this.options = $.extend(true, {}, this.defaults, this.options, options);
