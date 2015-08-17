@@ -84,9 +84,14 @@ function ismobile(){"use strict";window.mobilecheck=function(){var i=!1;return f
 
             if( ismobile() ) {
 
-                this.$el.on('click', $.proxy(function (event) {
+                this.$el.on('click', $.proxy(function (e) {
 
-                    this.$hoverElem.fadeToggle( this.options.speed );
+                    this.$el.parent().find( $('.' + this.$hoverElem[0].className) ).fadeOut( this.options.speed );
+
+                    if(!this.$hoverElem.is(':visible')) {
+                        this.$el.find(this.$hoverElem).fadeIn( this.options.speed );
+                    }
+
 
                 }, this));
 
