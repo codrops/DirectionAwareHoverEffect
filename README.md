@@ -1,5 +1,5 @@
 
-#DirectionAwareHoverEffect
+# DirectionAwareHoverEffect
 
 How to create a direction-aware hover effect using CSS3 and jQuery. The idea is to slide in an overlay from the direction we are moving with the mouse.
 
@@ -7,14 +7,14 @@ How to create a direction-aware hover effect using CSS3 and jQuery. The idea is 
 
 [demo](http://tympanus.net/TipsTricks/DirectionAwareHoverEffect/)
 
-###How to use
+### How to use
 
 ```js
 $('#da-thumbs > li').hoverdir();
 // or with options
 $('#da-thumbs > li').hoverdir({hoverDelay: 75, hoverElem: '.elem'});
 ```
-###Default options
+### Default options
 
 ```js
 defaults: {
@@ -26,7 +26,7 @@ defaults: {
 }
 ```
 
-###Method
+### Method
 
 **show**
 
